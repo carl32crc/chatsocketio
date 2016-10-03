@@ -12,3 +12,12 @@ function render(data){
                </div>`;
    document.getElementById('messages').innerHTML = html;
 }
+
+function  addMessage(e){
+   var payLoad = {
+      author: document.getElementById(username).value,
+      text:document.getElementById(text).value
+      };
+   socket.emit('new-message', payLoad);
+   return false;
+}

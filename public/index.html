@@ -10,7 +10,12 @@
 </head>
 <body>
    <h1>My Chat</h1>
-   <div id="messages">
-   </div>
+   <div id="messages"></div>
+   <br/>
+   <form onsubmit="return addMessage(this)">
+      <input type="text" id="username" placeholder="Name">
+      <input type="text" id="text" placeholder="Write...">
+      <input type="submit">
+   </form>
 </body>
 </html>

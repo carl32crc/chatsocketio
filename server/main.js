@@ -3,6 +3,12 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
+var messages = [{
+      id:1,
+      text:"Welcome",
+      author:"Carl"
+}];
+
 app.use(express.static('public'));
 
 app.get('/',function(req, res){
@@ -11,10 +17,10 @@ app.get('/',function(req, res){
 
 io.on('connection', function(socket){
    console.log('conectandome con sockets');
-   socket.emit('messages', {
-      id:1,
-      text:"Welcome",
-      author:"Carl"
+   socket.emit('messages', messages);
+
+   socket.on('new-message', function(data){
+
    });
 });
 
